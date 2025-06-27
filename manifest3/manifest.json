@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Akkredzmk",
+  "version": "1.0.0",
+  "permissions": [
+    "tabs"
+  ],
+  "host_permissions": [
+    "http://priem.medzel.ru/*",
+    "*://*.rosminzdrav.ru/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.rosminzdrav.ru/*"],
+      "js": [
+        "jquery-2.1.3.min.js",
+        "content.js"
+      ]
+    }
+  ]
+}
