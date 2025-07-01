@@ -13,13 +13,13 @@ chrome.runtime.onMessage.addListener((request, sender) => {
           return;
         }
         // выбираем ответ, начинающийся с '*'
-        let ss =
-          (ms.otvet1 && ms.otvet1.startsWith("*") && ms.otvet1) ||
-          (ms.otvet2 && ms.otvet2.startsWith("*") && ms.otvet2) ||
-          (ms.otvet3 && ms.otvet3.startsWith("*") && ms.otvet3) ||
-          (ms.otvet4 && ms.otvet4.startsWith("*") && ms.otvet4) ||
-          null;
-        if (!ss) return;
+       let ss = null;
+if (ms.otv1 && ms.otv1.startsWith("*")) ss = ms.otv1;
+else if (ms.otv2 && ms.otv2.startsWith("*")) ss = ms.otv2;
+else if (ms.otv3 && ms.otv3.startsWith("*")) ss = ms.otv3;
+else if (ms.otv4 && ms.otv4.startsWith("*")) ss = ms.otvЦ4;
+
+if (!ss) return;
 
         // отправляем сообщение в активную вкладку
         chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
